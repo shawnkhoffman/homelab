@@ -1,0 +1,12 @@
+vault:
+  ui:
+    enabled: true
+    serviceType: LoadBalancer
+
+  server:
+    serviceAccount:
+      create: true
+      name: vault
+
+    extraEnvironmentVars:
+      VAULT_LOG_LEVEL: debug

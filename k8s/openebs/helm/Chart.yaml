@@ -1,0 +1,8 @@
+apiVersion: v2
+name: openebs-app
+version: 0.1.0
+
+dependencies:
+  - name: openebs
+    version: 4.2.0
+    repository: https://openebs.github.io/openebs

@@ -1,0 +1,7 @@
+metallb:
+  speaker:
+    hostNetwork: true
+    securityContext:
+      privileged: true
+    frr:
+      enabled: false

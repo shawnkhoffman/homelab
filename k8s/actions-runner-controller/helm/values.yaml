@@ -1,0 +1,10 @@
+actions-runner-controller:
+  authSecret:
+    create: false
+    name: "controller-manager"
+    key: private_key
+
+  certManagerEnabled: false
+
+  githubWebhookServer:
+    enabled: false
