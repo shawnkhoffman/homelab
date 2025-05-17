@@ -2,7 +2,6 @@ argo-cd:
   server:
     service:
       type: LoadBalancer
-
     extraArgs:
       - --insecure
 
@@ -12,7 +11,16 @@ argo-cd:
   configs:
     cm:
       admin.enabled: true
-    
+
+      dex.config: |
+        connectors:
+        - type: github
+          id: github
+          name: GitHub
+          config:
+            clientID: $dex.github.clientID
+            clientSecret: $dex.github.clientSecret
+
     rbac:
       policy.default: role:readonly
       policy.csv: |
