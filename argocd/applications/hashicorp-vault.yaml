@@ -24,6 +24,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true
-  dependsOn:
-    - name: metallb
-    - name: openebs

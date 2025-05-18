@@ -24,7 +24,3 @@ spec:
     syncOptions:
       - ServerSideApply=true
       - PruneLast=true
-  dependsOn:
-    - name: metallb
-    - name: hashicorp-vault
-    - name: external-secrets
