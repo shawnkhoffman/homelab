@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: actions-runner-controller
+  name: github-actions-runner
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "5"
@@ -10,13 +10,13 @@ spec:
   source:
     repoURL: https://github.com/shawnkhoffman/homelab.git
     targetRevision: HEAD
-    path: k8s/actions-runner-controller/helm
+    path: k8s/github-actions-runner/helm
     helm:
       valueFiles:
         - values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: github-arc
+    namespace: github-actions
   syncPolicy:
     automated:
       prune: true

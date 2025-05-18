@@ -5,7 +5,7 @@ on:
 
 jobs:
   test:
-    runs-on: [self-hosted, linux, homelab]
+    runs-on: homelab-runner
     steps:
       - name: Echo test
         run: echo "Testing"

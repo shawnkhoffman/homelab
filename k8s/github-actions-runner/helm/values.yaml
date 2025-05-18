@@ -1,0 +1,33 @@
+gha-runner-scale-set-controller:
+  serviceAccount:
+    create: true
+    name: gha-runner-scale-set-controller
+  fullnameOverride: gha-runner-scale-set-controller
+  githubConfigSecret: github-auth-secret
+  controllerManager:
+    metrics:
+      serviceMonitor:
+        enabled: false
+
+gha-runner-scale-set:
+  githubConfigUrl: https://github.com/shawnkhoffman/homelab
+  githubConfigSecret: github-auth-secret
+  runnerScaleSetName: homelab-runner
+  minRunners: 1
+  maxRunners: 3
+  controllerServiceAccount:
+    namespace: github-actions
+    name: gha-runner-scale-set-controller
+  template:
+    spec:
+      containers:
+        - name: runner
+          image: ghcr.io/actions/actions-runner:latest
+          command: ["/home/runner/run.sh"]
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
